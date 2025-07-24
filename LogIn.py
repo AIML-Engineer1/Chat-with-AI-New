@@ -2,8 +2,34 @@ import streamlit as st
 
 from translator_config import SENTENCE
 
-
 IMAGE_ADDRESS = "https://legalaid.bc.ca/sites/default/files/2023-09/LAN%20Graphic%201.png"
+
+if "logged_in" not in st.session_state:
+
+    st.session_state.logged_in = False
+    
+
+if not st.session_state.logged_in:
+
+    username = st.text_input("Username")
+
+    password = st.text_input("Password", type="password")
+
+    if st.button("Log In"):
+
+        if username == "admin" and password == "password123":
+
+            st.session_state.logged_in = True
+
+        else:
+
+            st.error("Invalid credentials")
+
+if st.session_state.logged_in:
+
+    st.success("You are logged in!")
+
+    # Show your app content here
 
 if 'lang' not in st.session_state:
     st.session_state.lang = "en"
