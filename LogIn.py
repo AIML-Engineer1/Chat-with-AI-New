@@ -57,6 +57,22 @@ st.write(SENTENCE["sent3"][st.session_state.lang])
 # Add a coral reef image
 st.image(IMAGE_ADDRESS)
 
+redirect_uri = "http://localhost:8501/oauth2callback"
+
+cookie_secret = "abcde12345"
+
+client_id = "493520145160-42ua5asc6tpqa94p479tj3iohjbv4jf2.apps.googleusercontent.com"
+
+client_secret = "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"
+
+server_metadata_url = "https://accounts.google.com/.well-known/openid-configuration"
+
+OPENAI_API_KEY="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"
+
+PINECONE_API_KEY="pcsk_46NVQq_DgxhugvATtVunv2dmczroFYtzCNUK1gnejoZvqQyTCUtUgYmeFfYVPyJ9xZKmQn"
+
+INDEX_HOST="https://rag-8nasclb.svc.aped-4627-b74a.pinecone.io"
+
 if not st.experimental_user.is_logged_in:
     print(st.session_state.lang)
     if st.sidebar.button(SENTENCE["sent4"][st.session_state.lang], type="primary", icon=":material/login:"):
